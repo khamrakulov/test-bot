@@ -1,6 +1,6 @@
 const { Telegraf } = require('telegraf')
 
-bot.telegram.setWebhook('https://myaddress.com');
+bot.telegram.setWebhook('https://test-bot-xfeusw.herokuapp.com');
 bot.startWebhook(`/`, null, 4000);
 
 const bot = new Telegraf(process.env.BOT_TOKEN)

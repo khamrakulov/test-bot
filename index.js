@@ -1,15 +1,21 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const { Telegraf } = require('telegraf')
+const index = new Telegraf(process.env.BOT_TOKEN)
 
-app.get('/', (req, res) => {
-    res.send('Hello World! GET')
-})
+index.telegram.setWebhook('https://test-bot-xfeusw.herokuapp.com');
+index.startWebhook(`/`, null, 4000);
 
-app.post('/', (req, res) => {
-    res.send("Hello, World! POST")
-})
+index.use(function(ctx, next){
+    try{
+        if(ctx.chat == undefined) return;
+        console.log("Hello World");
+    }catch (e){
+        console.log("Error");
+    }
+});
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+index.start((ctx) => ctx.reply('Welcome'))
+index.help((ctx) => ctx.reply('Send me a sticker'))
+index.on('sticker', (ctx) => ctx.reply('👍'))
+index.hears('hi', (ctx) => ctx.reply('Hey there'))
+
+index.launch();

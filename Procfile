@@ -1,2 +1,2 @@
-worker: node index.js
-web: echo index.html
+worker: npm start
+web: npm start

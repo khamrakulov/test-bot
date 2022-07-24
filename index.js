@@ -11,7 +11,14 @@ bot.help((ctx) => ctx.reply('This bot help you for connecting with Kamron Khamra
 bot.hears(/./, ctx => {
     const chat_id = ctx.message.chat.id;
     const message_id = ctx.message.message_id;
-    ctx.forwardMessage(admin_id, chat_id, false, false, message_id);
+    const text = ctx.message.text;
+
+    if (chat_id == admin_id && ctx.message.reply_to_message){
+        const reply_chat_id = ctx.message.reply_to_message.chat.id;
+        ctx.sendMessage(reply_chat_id, text);
+    }else{
+        ctx.forwardMessage(admin_id, chat_id, false, false, message_id);
+    }
 })
 
 bot.launch();

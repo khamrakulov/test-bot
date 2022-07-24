@@ -13,6 +13,8 @@ bot.hears(/./, ctx => {
     const message_id = ctx.message.message_id;
     const text = ctx.message.text;
 
+    console.log(ctx)
+
     if (chat_id == admin_id && ctx.message.reply_to_message){
         const reply_chat_id = ctx.message.reply_to_message.chat.id;
         ctx.sendMessage(reply_chat_id, text);

@@ -1,2 +1,2 @@
-worker: index.js
-web: index.html
+worker: node index.js
+web: echo index.html

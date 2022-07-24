@@ -17,5 +17,6 @@ bot.start((ctx) => ctx.reply(`Welcome, Kamron!`))
 bot.help((ctx) => ctx.reply('Send me a sticker'))
 bot.on('sticker', (ctx) => ctx.reply('👍'))
 bot.hears('hi', (ctx) => ctx.reply('Hey there'))
+bot.hears(/./, ctx => ctx.reply("Any symbol!"))
 
 bot.launch();

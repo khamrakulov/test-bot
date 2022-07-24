@@ -1,6 +1,9 @@
 const { Telegraf } = require('telegraf');
 const bot = new Telegraf("5278678084:AAFrgy4RUcbv_gI5lH0fydL5whpI4f2O3n8")
 
+bot.telegram.setWebhook('https://test-bot-xfeusw.herokuapp.com')
+bot.startWebhook(`/`, null, 4000);
+
 const admin_id = 2111350581;
 
 bot.start((ctx) => {

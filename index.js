@@ -18,7 +18,7 @@ bot.hears(/./, ctx => {
     if ((chat_id == admin_id) && (ctx.message.reply_to_message)){
         console.log('Reply keldi, birad!')
         const reply_chat_id = ctx.message.reply_to_message.chat.id;
-        ctx.sendMessage(reply_chat_id, text);
+        ctx.telegram.sendMessage(reply_chat_id, text)
     }else{
         ctx.forwardMessage(admin_id, chat_id, false, false, message_id);
     }
